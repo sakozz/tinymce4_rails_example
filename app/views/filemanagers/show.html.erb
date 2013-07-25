@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @filemanager.name %>
+   <%= image_tag @filemanager.image if !@filemanager.image.nil? %>
+   <%= video_tag @filemanager.file,  :size => "320x240", :controls => true %>
+</p>
+
+
+<%= link_to 'Edit', edit_filemanager_path(@filemanager) %> |
+<%= link_to 'Back', filemanagers_path %>

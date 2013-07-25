@@ -1,0 +1,23 @@
+<%= form_for(@filemanager, :html => { :multipart => true }) do |f| %>
+  <% if @filemanager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filemanager.errors.count, "error") %> prohibited this filemanager from being saved:</h2>
+
+      <ul>
+      <% @filemanager.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %> 
+    <%= f.file_field :file %>
+    <%= f.file_field :image %> <%= f.submit 'Upload' %>
+  </div>
+  
+   
+ 
+<% end %>

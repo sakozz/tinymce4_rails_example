@@ -1,0 +1,27 @@
+<%= render 'form' %>
+  <ul>
+<% @filemanagers.each do |item| %>
+    <li class="img_thumb">
+       <a href="javascript:void(0)" id="image_<%= item.id %>" onclick="<%="ts_insert_image('image_#{item.id}');" %>">
+       <%= image_tag item.image.url(:medium), class: 'media' if !item.image.nil? %>
+       <br></a><span> <%= item.name %></span>
+    </li>
+     <li class="img_thumb">
+        <a href="javascript:void(0)" id="video_<%= item.id %>" onclick="<%="ts_insert_image('video_#{item.id}');" %>">
+       <%= video_tag item.file, :size => "220x100", :controls => true , class: 'media' %>
+      </a> <br><span> <%= item.name %></span>
+    </li>
+
+<% end %>
+
+</ul>
+<br />
+
+<script type="text/javascript">  
+	function ts_insert_image(id){
+	  if($("#"+id).hasClass('active'))
+	    {$("#"+id).removeClass('active'); }
+	  else
+	    {$("#"+id).addClass('active');}
+	}
+</script>

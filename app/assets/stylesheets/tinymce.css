@@ -1,0 +1,6 @@
+li.img_thumb {float: left; list-style-type:none; margin: 5px;}
+
+li.img_thumb a{padding: 5px;  background: lightgray;  float: left;}
+li.img_thumb a:hover{ background-color: #69bc58;}
+.img_thumb img{border: 1px solid gray; float: left; list-style-type:none; height: 100px;}
+.active{background-color: green !important; color: white;}
