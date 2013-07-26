@@ -1,15 +1,15 @@
 tinymce.PluginManager.add('media_browser', function(editor, url) {
     // Add a button that opens a window
     editor.addButton('media_browser', {
-        text: 'Insert media',
-        icon: false,
+        text: 'Media',
+        icon: 'browse',
         onclick: open_media_browser        
     });    
     
     // Opens browser window
     function open_media_browser() {
         editor.windowManager.open({
-            title: 'media Manager',
+            title: 'Media browser',
             url: '/filemanagers/',
             width: 800,
             height: 600,
