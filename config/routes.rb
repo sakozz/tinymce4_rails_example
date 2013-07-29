@@ -1,7 +1,6 @@
 TinymcePlugin::Application.routes.draw do
+  root :to =>'articles#index'
   resources :filemanagers
-
-
   resources :articles
   
 

@@ -12,3 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require plupload.min.js
+//= require plupload.html5.min.js

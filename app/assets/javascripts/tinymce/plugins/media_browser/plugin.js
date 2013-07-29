@@ -10,7 +10,7 @@ tinymce.PluginManager.add('media_browser', function(editor, url) {
     function open_media_browser() {
         editor.windowManager.open({
             title: 'Media browser',
-            url: '/filemanagers/',
+            url:  media_url,
             width: 800,
             height: 600,
             buttons: [{
