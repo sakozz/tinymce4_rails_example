@@ -41,7 +41,7 @@ class FilemanagersController < ApplicationController
   # POST /filemanagers
   # POST /filemanagers.json
   def create
-    @filemanager = Filemanager.new(:image=> params[:file])
+    @filemanager = Filemanager.new(params[:filemanager])
     respond_to do |format|
       if @filemanager.save
         format.html { redirect_to filemanagers_path, notice: 'Filemanager was successfully created.' }

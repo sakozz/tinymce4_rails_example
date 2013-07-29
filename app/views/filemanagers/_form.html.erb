@@ -1,44 +1,20 @@
+<%= form_for(@filemanager, :html => { :multipart => true }) do |f| %>
+  <% if @filemanager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filemanager.errors.count, "error") %> prohibited this filemanager from being saved:</h2>
 
-<div>
-  <div id="filelist"></div>
-  <br />
-  <a id="pickfiles" href="#">[Select files]</a>
-  <a id="uploadfiles" href="#">[Upload files]</a>
-</div>
+      <ul>
+      <% @filemanager.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<script type="text/javascript">
-$(function(){
-  var uploader = new plupload.Uploader({
-    runtimes : "html5",
-    browse_button : 'pickfiles',
-    max_file_size : '10mb',
-    url : "/filemanagers",
-    multipart: true,
-    multipart_params: {
-     "authenticity_token" : '<%= form_authenticity_token %>'
-    }
-  });
-
-  uploader.bind('FilesAdded', function(up, files) {
-    $.each(files, function(i, file) {
-      $('#filelist').append(
-        '<div id="' + file.id + '">' +
-        'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ')</b>' +
-        '</div>'
-        );
-      });
-    });
-
-  uploader.bind('UploadProgress', function(up, file) {
-    $('#' + file.id + " b").html(file.percent + "%");
-  });
-
-  $('#uploadfiles').click(function(e) {
-    uploader.start();
-    e.preventDefault();
-  });
-
-  uploader.init();
-});
-</script>
-
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %> 
+    <%= f.file_field :image %> <%= f.submit 'Upload' %>
+  </div>  
+ 
+<% end %>

@@ -6,11 +6,7 @@
        <%= image_tag item.image.url(:medium), class: 'media' if !item.image.nil? %>
        <br><span> <%= item.name %></span></a>
     </li>
-     <li class="media_thumb">
-        <a href="javascript:void(0)" id="video_<%= item.id %>" onclick="<%="ts_insert_image('video_#{item.id}');" %>">
-       <%= video_tag item.file, :size => "180x110", :controls => true , class: 'media' %>
-      <br><span> <%= item.name %></span> </a>
-    </li>
+     
 
 <% end %>
 
